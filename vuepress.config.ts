@@ -42,6 +42,18 @@ export default defineUserConfig({
         maxDeep: 10
       }),
       downProxy: cloudflarePagesDownProxy(),//如果文件树地址下载比较慢，也可以配置代理
+    },
+    {
+      mountPath: "/paranoia-huggingface",
+      analysis: huggingFaceDatasetsAnalysis({
+        userName: "Starsharbor",
+        datasetsName: "paranoia",
+        branchName: "main",
+        path: "/",
+        //最大深度,如果文件夹有很多层最大递归解析多少层，默认10
+        maxDeep: 10
+      }),
+      downProxy: cloudflarePagesDownProxy(),//如果文件树地址下载比较慢，也可以配置代理
     }
     // ... 可以配置多个挂载路径和仓库，以此类推
   ])
